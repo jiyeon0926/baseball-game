@@ -52,8 +52,6 @@ public class BaseballGame {
 
                     baseballGameDisplay.displayHint(strike, ball);
 
-                    System.out.println(answer);
-
                     count++; // 진행횟수 증가
 
                     // 정답이면 break 를 이용해 반복문 탈출
