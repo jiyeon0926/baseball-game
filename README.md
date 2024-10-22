@@ -23,6 +23,7 @@
 # 📝 참고
 - https://mine-it-record.tistory.com/143 (1 ~ 9 사이의 숫자로 랜덤)
 - https://goodteacher.tistory.com/452 (subList)
+- https://velog.io/@nime0110/Java-CharAt-%EC%96%B8%EC%A0%9C-%EC%93%B8%EA%B9%8C (charAt)
 ---------
 
 # 1️⃣ Lv 1. 숫자 야구 게임 기본 구현
@@ -32,6 +33,8 @@
 - 정답을 맞추기 위해 숫자를 입력하기
 - 결과값 출력 및 게임 로직 적용하기
 - 게임 이어서하기
+
+### 💥 트러블 슈팅
 
 ### ✅ 체크
 -----------
