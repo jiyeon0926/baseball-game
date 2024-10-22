@@ -3,64 +3,61 @@ package lv1;
 import java.util.*;
 
 public class BaseballGame {
-    private List<Integer> answer;
+    private String answer;
 
-    // 객체 생성시 정답을 만들도록 함
+    // 객체 생성시 생성자가 정답만 반환해 초기화하도록 구성
     public BaseballGame() {
-        answer = new ArrayList<>();
-        List<Integer> randomArray = new ArrayList<>(); // 1 ~ 9까지 숫자를 담을 리스트
+        this.answer = randomAnswer();
+    }
 
-        // 1 ~ 9 사이의 숫자를 randomArray 리스트에 담음
-        for (int i = 1; i < 10; i++) {
-            randomArray.add(i);
+    public String randomAnswer() {
+        Random random = new Random();
+        HashSet<String> set = new HashSet<>();
+        StringBuilder answerBuilder = new StringBuilder();
+
+        // set 요소 3개만 추가될 때까지 반복
+        while (set.size() < 3) {
+            String numbers = String.valueOf(random.nextInt(9) + 1); // 1부터 9까지의 숫자
+            set.add(numbers);
         }
 
-        Collections.shuffle(randomArray); // 무작위로 섞음
-        answer = randomArray.subList(0, 3); // 인덱스 0부터 2까지
+        /*
+         * set 요소를 가져와 배열 상태가 아닌, 문자열 형태로 변환
+         * [1, 2, 3] -> 123
+         * */
+        for (String num : set) {
+            answerBuilder.append(num);
+        }
+
+        // 변환한 문자열을 String 타입인 answer 변수에 저장
+        String answer = answerBuilder.toString();
+        return answer; // 정답만 반환
     }
 
     public int play() {
         Scanner sc = new Scanner(System.in);
-        int[] player = new int[3];
-
-        int count = 0; // 진행횟수 선언 및 0으로 초기화
-
         BaseballGameDisplay baseballGameDisplay = new BaseballGameDisplay();
+        int count = 0; // 진행횟수 선언 및 0으로 초기화
 
         // 플레이어가 3 스트라이커가 될 때까지 반복
         while (true) {
             System.out.print("숫자를 입력하세요: ");
             String input = sc.next();
 
-            try {
-                // 검증
-                int intInput = Integer.parseInt(input);
-                boolean validate = validateInput(String.valueOf(intInput));
+            boolean validate = validateInput(input); // 검증
 
-                if (validate) {
-                    /*
-                     * 배열 길이만큼 for 문을 순회
-                     * int 타입을 문자열로 변환하고, 문자를 정수로 변환해 배열에 담음
-                     * */
-                    for (int i = 0; i < player.length; i++) {
-                        String strInput = Integer.toString(intInput);
-                        player[i] = Character.getNumericValue(strInput.charAt(i));
-                    }
+            if (validate) {
+                int strike = countStrike(input); // 스트라이크 개수 계산
+                int ball = countBall(input); // 볼 개수 계산
 
-                    int strike = countStrike(player); // 스트라이크 개수 계산
-                    int ball = countBall(player); // 볼 개수 계산
+                baseballGameDisplay.displayHint(strike, ball); // 개수에 따른 출력
 
-                    baseballGameDisplay.displayHint(strike, ball);
+                count++; // 진행횟수 증가
 
-                    count++; // 진행횟수 증가
-
-                    // 정답이면 break 를 이용해 반복문 탈출
-                    if (strike == 3) {
-                        break;
-                    }
+                // 정답이면 반복문 탈출
+                if (strike == 3) {
+                    break;
                 }
-            } catch (NumberFormatException e) {
-                System.out.println("숫자만 입력 가능합니다.");
             }
         }
         // 게임 진행횟수 반환
@@ -92,11 +89,11 @@ public class BaseballGame {
      * 스트라이크
      * 숫자와 위치가 맞을 경우만 카운트
      * */
-    private int countStrike(int[] player) {
+    private int countStrike(String input) {
         int strike = 0;
 
-        for (int i = 0; i < player.length; i++) {
-            if (player[i] == answer.get(i)) {
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == answer.charAt(i)) {
                 strike++;
             }
         }
@@ -108,11 +105,12 @@ public class BaseballGame {
      * 볼
      * 숫자는 맞지만 위치가 다를 경우만 카운트
      * */
-    private int countBall(int[] player) {
+    private int countBall(String input) {
         int ball = 0;
 
-        for (int i = 0; i < player.length; i++) {
-            if (answer.contains(player[i]) && player[i] != answer.get(i)) {
+        for (int i = 0; i < input.length(); i++) {
+            if (answer.contains(String.valueOf(input.charAt(i))) &&
+                    input.charAt(i) != answer.charAt(i)) {
                 ball++;
             }
         }
