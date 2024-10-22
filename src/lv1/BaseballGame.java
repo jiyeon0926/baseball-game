@@ -70,6 +70,12 @@ public class BaseballGame {
      * 이외에 false 반환
      * */
     protected boolean validateInput(String input) {
+        // 숫자 정규식을 사용해 숫자 입력이 아니면 false 반환
+        if (!input.matches("^[0-9]*$")) {
+            System.out.println("숫자만 입력할 수 있습니다.");
+            return false;
+        }
+
         // 문자에 0이 있으면 false 반환
         for (int i = 0; i < input.length(); i++) {
             if (input.charAt(i) == '0') {
@@ -79,8 +85,12 @@ public class BaseballGame {
         }
 
         if (input.length() == 3) {
-            String[] split = input.split(""); // 입력 받은 세 자릿수를 잘라서 배열에 저장
-            // 배열에 저장된 숫자 3개 모두 중복이 아닐 때, true 반환
+            /*
+            * 입력 받은 세 자릿수를 잘라서 배열에 저장
+            * 배열에 저장된 숫자 3개 모두 중복이 아닐 때, true 반환
+            * 이외 false 반환
+            * */
+            String[] split = input.split("");
             if (!split[0].equals(split[1]) && !split[1].equals(split[2]) &&
                     !split[0].equals(split[2])) {
                 return true;
@@ -89,7 +99,7 @@ public class BaseballGame {
                 return false;
             }
         } else {
-            System.out.println("올바르지 않은 입력값입니다.");
+            System.out.println("세 자릿수만 입력할 수 있습니다.");
             return false;
         }
     }
