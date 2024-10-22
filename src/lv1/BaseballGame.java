@@ -111,8 +111,8 @@ public class BaseballGame {
     private int countBall(int[] player) {
         int ball = 0;
 
-        for (int num : player) {
-            if (answer.contains(num) && player[answer.indexOf(num)] != num) {
+        for (int i = 0; i < player.length; i++) {
+            if (answer.contains(player[i]) && player[i] != answer.get(i)) {
                 ball++;
             }
         }
