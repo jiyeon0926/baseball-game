@@ -37,8 +37,7 @@
 - 게임 이어서하기
 
 ### 💥 트러블 슈팅
-
-### ✅ 체크
+- https://velog.io/@yeoni9094/%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0-Lv.-1-%EC%88%AB%EC%9E%90-%EC%95%BC%EA%B5%AC-%EA%B2%8C%EC%9E%84-Trouble-Shooting-20241021-20241022
 -----------
 
 # 2️⃣ Lv 2. 입력 및 출력 개선
