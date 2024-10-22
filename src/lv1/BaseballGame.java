@@ -70,10 +70,19 @@ public class BaseballGame {
      * 이외에 false 반환
      * */
     protected boolean validateInput(String input) {
+        // 문자에 0이 있으면 false 반환
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == '0') {
+                System.out.println("0을 입력할 수 없습니다.");
+                return false;
+            }
+        }
+
         if (input.length() == 3) {
             String[] split = input.split(""); // 입력 받은 세 자릿수를 잘라서 배열에 저장
             // 배열에 저장된 숫자 3개 모두 중복이 아닐 때, true 반환
-            if (!split[0].equals(split[1]) && !split[1].equals(split[2]) && !split[0].equals(split[2])) {
+            if (!split[0].equals(split[1]) && !split[1].equals(split[2]) &&
+                    !split[0].equals(split[2])) {
                 return true;
             } else {
                 System.out.println("중복된 수가 있습니다.");
