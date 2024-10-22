@@ -7,18 +7,16 @@ public class BaseballGame {
 
     // 객체 생성시 정답을 만들도록 함
     public BaseballGame() {
-        Random random = new Random();
         answer = new ArrayList<>();
+        List<Integer> randomArray = new ArrayList<>(); // 1 ~ 9까지 숫자를 담을 리스트
 
-        /*
-         * 플레이어가 맞춰야 할 정답 세 자릿수 생성
-         * set.size() < 3 -> 인덱스 0 ~ 2
-         * */
-        while (answer.size() < 3) {
-            answer.add(random.nextInt(9) + 1); // 랜덤으로 1 ~ 9 사이의 숫자로만 추가
+        // 1 ~ 9 사이의 숫자를 randomArray 리스트에 담음
+        for (int i = 1; i < 10; i++) {
+            randomArray.add(i);
         }
 
-        Collections.shuffle(answer);
+        Collections.shuffle(randomArray); // 무작위로 섞음
+        answer = randomArray.subList(0, 3); // 인덱스 0부터 2까지
     }
 
     public int play() {
@@ -54,6 +52,8 @@ public class BaseballGame {
 
                     baseballGameDisplay.displayHint(strike, ball);
 
+                    System.out.println(answer);
+
                     count++; // 진행횟수 증가
 
                     // 정답이면 break 를 이용해 반복문 탈출
@@ -61,7 +61,6 @@ public class BaseballGame {
                         break;
                     }
                 }
-
             } catch (NumberFormatException e) {
                 System.out.println("숫자만 입력 가능합니다.");
             }
