@@ -22,6 +22,7 @@
 
 # 📝 참고
 - https://mine-it-record.tistory.com/143 (1 ~ 9 사이의 숫자로 랜덤)
+- https://goodteacher.tistory.com/452 (subList)
 ---------
 
 # 1️⃣ Lv 1. 숫자 야구 게임 기본 구현
