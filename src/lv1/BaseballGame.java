@@ -32,11 +32,12 @@ public class BaseballGame {
         // 플레이어가 3 스트라이커가 될 때까지 반복
         while (true) {
             System.out.print("숫자를 입력하세요: ");
-            int input = sc.nextInt(); // int 타입만 입력 가능
+            String input = sc.next();
 
             try {
-                // int 타입을 문자열로 변환해 입력값이 세 자릿수이고 중복이 없는지 검증
-                boolean validate = validateInput(String.valueOf(input));
+                // 검증
+                int intInput = Integer.parseInt(input);
+                boolean validate = validateInput(String.valueOf(intInput));
 
                 if (validate) {
                     /*
@@ -44,7 +45,7 @@ public class BaseballGame {
                      * int 타입을 문자열로 변환하고, 문자를 정수로 변환해 배열에 담음
                      * */
                     for (int i = 0; i < player.length; i++) {
-                        String strInput = Integer.toString(input);
+                        String strInput = Integer.toString(intInput);
                         player[i] = Character.getNumericValue(strInput.charAt(i));
                     }
 
@@ -81,19 +82,19 @@ public class BaseballGame {
             if (!split[0].equals(split[1]) && !split[1].equals(split[2]) && !split[0].equals(split[2])) {
                 return true;
             } else {
-                System.out.println("올바르지 않은 입력값입니다");
+                System.out.println("중복된 수가 있습니다.");
                 return false;
             }
         } else {
-            System.out.println("올바르지 않은 입력값입니다");
+            System.out.println("올바르지 않은 입력값입니다.");
             return false;
         }
     }
 
     /*
-    * 스트라이크
-    * 숫자와 위치가 맞을 경우만 카운트
-    * */
+     * 스트라이크
+     * 숫자와 위치가 맞을 경우만 카운트
+     * */
     private int countStrike(int[] player) {
         int strike = 0;
 
@@ -107,8 +108,8 @@ public class BaseballGame {
     }
 
     /*
-    * 볼
-    * 숫자는 맞지만 위치가 다를 경우만 카운트
+     * 볼
+     * 숫자는 맞지만 위치가 다를 경우만 카운트
      * */
     private int countBall(int[] player) {
         int ball = 0;
