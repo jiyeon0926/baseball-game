@@ -74,14 +74,14 @@ public class BaseballGame {
     protected boolean validateInput(String input) {
         // 숫자 정규식을 사용해 숫자 입력이 아니면 false 반환
         if (!input.matches("^[0-9]*$")) {
-            System.out.println("숫자만 입력할 수 있습니다.");
+            System.out.println("올바르지 않은 입력값입니다.");
             return false;
         }
 
         // 문자에 0이 있으면 false 반환
         for (int i = 0; i < input.length(); i++) {
             if (input.charAt(i) == '0') {
-                System.out.println("0을 입력할 수 없습니다.");
+                System.out.println("올바르지 않은 입력값입니다.");
                 return false;
             }
         }
@@ -97,11 +97,11 @@ public class BaseballGame {
                     !split[0].equals(split[2])) {
                 return true;
             } else {
-                System.out.println("중복된 수가 있습니다.");
+                System.out.println("올바르지 않은 입력값입니다.");
                 return false;
             }
         } else {
-            System.out.println("세 자릿수만 입력할 수 있습니다.");
+            System.out.println("올바르지 않은 입력값입니다.");
             return false;
         }
     }
