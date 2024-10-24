@@ -4,10 +4,11 @@ import java.util.*;
 
 public class BaseballGame {
     private String answer;
-    private static List<Integer> list = new ArrayList<>(); // static 을 사용해 데이터 유지
+    private int size;
 
     // 객체 생성시 생성자가 정답만 반환해 초기화하도록 구성
-    public BaseballGame() {
+    public BaseballGame(int size) {
+        this.size = size;
         this.answer = randomAnswer();
     }
 
@@ -17,7 +18,7 @@ public class BaseballGame {
         StringBuilder answerBuilder = new StringBuilder();
 
         // set 요소 3개만 추가될 때까지 반복
-        while (set.size() < 3) {
+        while (set.size() < size) {
             String numbers = String.valueOf(random.nextInt(9) + 1); // 1부터 9까지의 숫자
             set.add(numbers);
         }
@@ -38,6 +39,7 @@ public class BaseballGame {
     public int play() {
         Scanner sc = new Scanner(System.in);
         BaseballGameDisplay baseballGameDisplay = new BaseballGameDisplay();
+        GameDataList gameDataList = new GameDataList();
         int count = 0;
 
         System.out.println("< 게임을 시작합니다 >");
@@ -53,16 +55,17 @@ public class BaseballGame {
                 int strike = countStrike(input); // 스트라이크 개수 계산
                 int ball = countBall(input); // 볼 개수 계산
 
-                baseballGameDisplay.displayHint(strike, ball); // 개수에 따른 출력
+                baseballGameDisplay.displayHint(strike, ball, size); // 개수에 따른 출력
                 count++; // 진행횟수 증가
 
                 // 정답이면 반복문 탈출
-                if (strike == 3) {
+                if (strike == size) {
                     break;
                 }
             }
         }
-        list.add(count);
+        GameDataList.totalCount().add(count); // 진행횟수 보관
+        GameDataList.beforeSize().add(answer.length()); // 자릿수 보관
 
         // 게임 진행횟수 반환
         System.out.println("총 진행횟수는 " + count + "번 입니다.");
@@ -131,10 +134,5 @@ public class BaseballGame {
         }
 
         return ball;
-    }
-
-    // 총 진행횟수 담을 리스트
-    public static List<Integer> totalCount() {
-        return list;
     }
 }
