@@ -22,12 +22,14 @@ public class Main {
                 baseballGame.play();
                 System.out.println();
             } else if (text.contains("2")) {
-                System.out.println("< 게임 기록 보기 >\n");
+                System.out.println("< 게임 기록 보기 >");
                 List<Integer> list = baseballGame.totalCount();
 
                 for (int i = 0; i < list.size(); i++) {
                     System.out.println((i + 1) + "번째 게임 : 시도 횟수 - " + list.get(i));
                 }
+
+                System.out.println();
             } else if (text.contains("3")) {
                 System.out.println("< 숫자 야구 게임을 종료합니다 >");
                 break;
