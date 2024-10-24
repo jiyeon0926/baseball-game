@@ -40,6 +40,8 @@ public class BaseballGame {
         BaseballGameDisplay baseballGameDisplay = new BaseballGameDisplay();
         int count = 0;
 
+        System.out.println("< 게임을 시작합니다 >");
+
         // 플레이어가 3 스트라이커가 될 때까지 반복
         while (true) {
             System.out.print("숫자를 입력하세요: ");
