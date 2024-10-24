@@ -15,8 +15,7 @@ public class Main {
             if (text.contains("0")) {
                 System.out.println("설정하고자 하는 자리수를 입력하세요.");
                 int size = sc.nextInt();
-                System.out.println(size + "자릿수 난이도로 설정되었습니다.");
-                System.out.println();
+                System.out.println(size + "자릿수 난이도로 설정되었습니다.\n");
                 baseballGame.play();
                 System.out.println();
             } else if (text.contains("1")) {
@@ -35,8 +34,7 @@ public class Main {
                 System.out.println("< 숫자 야구 게임을 종료합니다 >");
                 break;
             } else {
-                System.out.println("올바른 숫자를 입력해주세요!");
-                System.out.println();
+                System.out.println("올바른 숫자를 입력해주세요!\n");
             }
         }
     }
