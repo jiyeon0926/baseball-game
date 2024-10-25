@@ -26,6 +26,7 @@
 - https://velog.io/@nime0110/Java-CharAt-%EC%96%B8%EC%A0%9C-%EC%93%B8%EA%B9%8C (charAt)
 - https://pickersoft.net/entry/StringIndexOutOfBoundsException-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95 (StringIndexOutOfBoundsException)
 - https://velog.io/@youngjun_10/%EC%9E%90%EB%B0%94-%EC%A0%95%EA%B7%9C%EC%8B%9DRegular-Expression-%EC%A0%95%EB%A6%AC (정규식)
+- https://blog.naver.com/yeondata/223152167631 (static)
 ---------
 
 # 1️⃣ Lv 1. 숫자 야구 게임 기본 구현
