@@ -68,7 +68,7 @@ public class BaseballGame {
         GameDataList.beforeSize().add(answer.length()); // 자릿수 보관
 
         // 게임 진행횟수 반환
-        System.out.println("총 진행횟수는 " + count + "번 입니다.");
+        System.out.println("총 진행횟수는 " + count + "번 입니다.\n");
         return count;
     }
 
