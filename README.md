@@ -63,3 +63,7 @@
 
 # 💥 트러블 슈팅 총정리
 - https://velog.io/@yeoni9094/%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0-%EC%88%AB%EC%9E%90-%EC%95%BC%EA%B5%AC-%EA%B2%8C%EC%9E%84-Trouble-Shooting-%EC%B4%9D%EC%A0%95%EB%A6%AC
+----------
+
+# 👩‍💻 피드백 적용 후 개선
+- https://velog.io/@yeoni9094/%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0-%EC%88%AB%EC%9E%90-%EC%95%BC%EA%B5%AC-%EA%B2%8C%EC%9E%84-%EA%B0%9C%EC%84%A0-20241025
