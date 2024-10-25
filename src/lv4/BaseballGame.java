@@ -55,11 +55,11 @@ public class BaseballGame {
                 int strike = countStrike(input); // 스트라이크 개수 계산
                 int ball = countBall(input); // 볼 개수 계산
 
-                baseballGameDisplay.displayHint(strike, ball, size); // 개수에 따른 출력
+                baseballGameDisplay.displayHint(strike, ball); // 개수에 따른 출력
                 count++; // 진행횟수 증가
 
                 // 정답이면 반복문 탈출
-                if (strike == size) {
+                if (strike == 3) {
                     break;
                 }
             }
@@ -84,15 +84,7 @@ public class BaseballGame {
             set.add(input.charAt(i));
         }
 
-        // 입력값에 0이 있으면 false 반환
-        for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) == '0') {
-                System.out.println("올바르지 않은 입력값입니다.");
-                return false;
-            }
-        }
-
-        if (!input.matches("^[0-9]*$")) { // 숫자 입력이 아니면 false 반환
+        if (!input.matches("^[1-9]*$")) { // 숫자 입력이 아니면 false 반환
             System.out.println("올바르지 않은 입력값입니다.");
             return false;
         } else if (input.length() != answer.length()) { // 입력 자릿수와 정답 자릿수가 다르면 false 반환

@@ -1,8 +1,8 @@
 package lv4;
 
 public class BaseballGameDisplay {
-    public void displayHint(int strike, int ball, int size) {
-        if (strike == size) {
+    public void displayHint(int strike, int ball) {
+        if (strike == 3) {
             System.out.println("정답입니다!");
             System.out.println("게임을 종료합니다.");
 
